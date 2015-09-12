@@ -1,5 +1,8 @@
-exports/
-.settings
+# Build and Release Folders
+export/
+
+# Other files and folders
+.settings/
 
 # Windows image file caches
 Thumbs.db
