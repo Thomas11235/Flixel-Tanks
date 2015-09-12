@@ -52,6 +52,12 @@ class PlayerTank extends FlxSprite
 		
 	}
 	
+	override public function update()
+	{
+		super.update();
+		movement();
+	}
+	
 	private function movement():Void
 	{
 	}
