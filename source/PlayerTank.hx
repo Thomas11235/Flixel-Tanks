@@ -16,7 +16,7 @@ class PlayerTank extends FlxSprite
 	private var _shootKey:String;
 	private var isPlayer1:Bool
 	
-	public function new(X:Float=0, Y:Float=0, IsPlayer1:Bool) 
+	public function new(X:Float=0, Y:Float=0, IsPlayer1:Bool=true) 
 	{
 		super(X, Y);
 		
