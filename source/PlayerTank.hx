@@ -2,6 +2,7 @@ package;
 
 import flixel.FlxSprite;
 import flixel.util.FlxColor;
+import flixel.FlxG;
 
 /**
  * ...
@@ -49,6 +50,10 @@ class PlayerTank extends FlxSprite
 			makeGraphic(32, 48, FlxColor.BLUE);
 		}
 		
+	}
+	
+	private function movement():Void
+	{
 	}
 	
 }
