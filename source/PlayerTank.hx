@@ -1,6 +1,7 @@
 package;
 
 import flixel.FlxSprite;
+import flixel.util.FlxColor;
 
 /**
  * ...
@@ -31,6 +32,9 @@ class PlayerTank extends FlxSprite
 			_rLeftKey = "A";
 			_rRightKey = "D";
 			_shootKey = "SPACE";
+			
+			//makes graphics for player1
+			makeGraphic(32, 48, FlxColor.RED);
 		}
 		else 
 		{
@@ -40,6 +44,9 @@ class PlayerTank extends FlxSprite
 			_rLeftKey = "LEFT";
 			_rRightKey = "RIGHT";
 			_shootKey = "CONTROL";
+			
+			//makes graphics for player2
+			makeGraphic(32, 48, FlxColor.BLUE);
 		}
 		
 	}
