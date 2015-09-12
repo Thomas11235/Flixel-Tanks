@@ -4,6 +4,9 @@ export/
 # Other files and folders
 .settings/
 
+#FlashDevelop projects
+*.hxproj
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
