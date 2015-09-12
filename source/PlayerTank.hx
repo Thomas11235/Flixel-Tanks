@@ -9,12 +9,14 @@ import flixel.FlxSprite;
 class PlayerTank extends FlxSprite
 {
 
+	private var isPlayer1:Bool
+	
+	//Variables for keys
 	private var _forwardKey:String;
 	private var _backwardKey:String;
 	private var _rLeftKey:String;
 	private var _rRightKey:String;
 	private var _shootKey:String;
-	private var isPlayer1:Bool
 	
 	public function new(X:Float=0, Y:Float=0, IsPlayer1:Bool=true) 
 	{
@@ -23,6 +25,7 @@ class PlayerTank extends FlxSprite
 		isPlayer1 = IsPlayer1;
 		if (isPlayer1)
 		{
+			//Sets keys for player1
 			_forwardKey = "W";
 			_backwardKey = "S";
 			_rLeftKey = "A";
@@ -31,6 +34,7 @@ class PlayerTank extends FlxSprite
 		}
 		else 
 		{
+			//Sets keys for player2
 			_forwardKey = "UP";
 			_backwardKey = "DOWN";
 			_rLeftKey = "LEFT";
