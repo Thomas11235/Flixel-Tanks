@@ -71,6 +71,17 @@ class PlayerTank extends FlxSprite
 		_backward = FlxG.keys.anyPressed(_backwardKey);
 		_rLeft = FlxG.keys.anyPressed(_rLeftKey);
 		_rRight = FlxG.keys.anyPressed(_rRightKey);
+		
+		//sets _forward and _backward to false when both pressed
+		if (_forward && _backward)
+		{
+			_forward = _backward = false;
+		}
+		//sets _rLeft and _rRight to false when both pressed
+		if (_rLeft && _rRight)
+		{
+			_rRight = _rLeft = false;
+		}
 	}
 	
 }
