@@ -60,6 +60,17 @@ class PlayerTank extends FlxSprite
 	
 	private function movement():Void
 	{
+		//Declare variables
+		var _forward:Bool = false;
+		var _backward:Bool = false;
+		var _rLeft:Bool = false;
+		var _rRight:Bool = false;
+		
+		//Bools become true when the corresponding key is pressed
+		_forward = FlxG.keys.anyPressed(_forwardKey);
+		_backward = FlxG.keys.anyPressed(_backwardKey);
+		_rLeft = FlxG.keys.anyPressed(_rLeftKey);
+		_rRight = FlxG.keys.anyPressed(_rRightKey);
 	}
 	
 }
