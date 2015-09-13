@@ -14,6 +14,10 @@ class PlayerTank extends FlxSprite
 
 	private var isPlayer1:Bool;
 	
+	//Variables for the size of the tank
+	var _width:Int = 24;
+	var _height:Int = 16;
+	
 	//Variables for movement
 	private var speed:Float = 200;
 	private var rSpeed:Float = 10;
@@ -25,6 +29,7 @@ class PlayerTank extends FlxSprite
 	private var _rLeftKey:Array<String>;
 	private var _rRightKey:Array<String>;
 	private var _shootKey:Array<String>;
+	
 	
 	public function new(X:Float=0, Y:Float=0, IsPlayer1:Bool=true) 
 	{
@@ -44,7 +49,7 @@ class PlayerTank extends FlxSprite
 			_shootKey = ["SPACE"];
 			
 			//makes graphics for player1
-			makeGraphic(32, 48, FlxColor.RED);
+			makeGraphic( _width, _height, FlxColor.RED);
 		}
 		else 
 		{
@@ -56,7 +61,7 @@ class PlayerTank extends FlxSprite
 			_shootKey = ["CONTROL"];
 			
 			//makes graphics for player2
-			makeGraphic(32, 48, FlxColor.BLUE);
+			makeGraphic(_width, _height, FlxColor.BLUE);
 		}
 		
 	}
