@@ -30,6 +30,9 @@ class PlayState extends FlxState
 		
 		player2 = new PlayerTank(70, 70, false);
 		add(player2);
+		
+		_bullets = new FlxTypedGroup<Bullet>;
+		add(_bullets);
 	}
 	
 	private function shootBullets():Void
