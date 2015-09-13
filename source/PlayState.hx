@@ -39,6 +39,15 @@ class PlayState extends FlxState
 	
 	private function shootBullets():Void
 	{
+		if (FlxG.keys.anyJustPressed(["SPACE"]))
+		{
+			_bullets.add(new Bullet(player1.x, player1.y, player1.angle));
+		}
+		
+		if (FlxG.keys.anyJustPressed(["CONTROL"]))
+		{
+			_bullets.add(new Bullet(player2.x, player2.y, player2.angle));
+		}
 	}
 	
 	
