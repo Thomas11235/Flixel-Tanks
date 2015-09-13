@@ -5,7 +5,7 @@ export/
 .settings/
 
 #FlashDevelop projects
-*.hxproj
+Flixel-Tanks.hxproj
 
 # Windows image file caches
 Thumbs.db
@@ -50,3 +50,4 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
