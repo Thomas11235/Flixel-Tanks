@@ -19,7 +19,7 @@ class Bullet extends FlxSprite
 	public function new(X:Float=0, Y:Float=0, tankAngle:Float) 
 	{
 		super(X, Y);
-		makeGraphic( _width, _height, FlxColor.ORANGE);
+		makeGraphic( _width, _height, FlxColor.BROWN);
 	}
 	
 }
