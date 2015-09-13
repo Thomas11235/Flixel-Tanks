@@ -12,7 +12,12 @@ import flixel.util.FlxAngle;
 class PlayerTank extends FlxSprite
 {
 
-	private var isPlayer1:Bool
+	private var isPlayer1:Bool;
+	
+	//Variables for movement
+	private var speed:Float = 200;
+	private var rSpeed:Float = 10;
+	private var _drag:Int = 2000;
 	
 	//Variables for keys
 	private var _forwardKey:Array<String>;
@@ -24,6 +29,9 @@ class PlayerTank extends FlxSprite
 	public function new(X:Float=0, Y:Float=0, IsPlayer1:Bool=true) 
 	{
 		super(X, Y);
+		
+		//sets the drag
+		drag.x = drag.y = _drag;
 		
 		isPlayer1 = IsPlayer1;
 		if (isPlayer1)
@@ -83,6 +91,31 @@ class PlayerTank extends FlxSprite
 		{
 			_rRight = _rLeft = false;
 		}
+		
+		//rotates the tank counter-clockwise
+		if (_rLeft)
+		{
+			angle -= rSpeed;
+		}
+		//rotates the tank clockwise
+		else if (_rRight)
+		{
+			angle += rSpeed;
+		}
+		
+		//moves the tank towards forward
+		if (_forward)
+		{
+			FlxAngle.rotatePoint(speed, 0, 0, 0, angle, velocity);
+		}
+		
+		//moves the tank towards backward
+		if (_backward)
+		{
+			FlxAngle.rotatePoint(speed, 0, 0, 0, angle + 180, velocity);
+		}
+		
+		
 	}
 	
 }
