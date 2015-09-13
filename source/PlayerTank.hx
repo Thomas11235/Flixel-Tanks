@@ -3,6 +3,7 @@ package;
 import flixel.FlxSprite;
 import flixel.util.FlxColor;
 import flixel.FlxG;
+import flixel.util.FlxAngle;
 
 /**
  * ...
@@ -14,11 +15,11 @@ class PlayerTank extends FlxSprite
 	private var isPlayer1:Bool
 	
 	//Variables for keys
-	private var _forwardKey:String;
-	private var _backwardKey:String;
-	private var _rLeftKey:String;
-	private var _rRightKey:String;
-	private var _shootKey:String;
+	private var _forwardKey:Array<String>;
+	private var _backwardKey:Array<String>;
+	private var _rLeftKey:Array<String>;
+	private var _rRightKey:Array<String>;
+	private var _shootKey:Array<String>;
 	
 	public function new(X:Float=0, Y:Float=0, IsPlayer1:Bool=true) 
 	{
@@ -28,11 +29,11 @@ class PlayerTank extends FlxSprite
 		if (isPlayer1)
 		{
 			//Sets keys for player1
-			_forwardKey = "W";
-			_backwardKey = "S";
-			_rLeftKey = "A";
-			_rRightKey = "D";
-			_shootKey = "SPACE";
+			_forwardKey = ["W"];
+			_backwardKey = ["S"];
+			_rLeftKey = ["A"];
+			_rRightKey = ["D"];
+			_shootKey = ["SPACE"];
 			
 			//makes graphics for player1
 			makeGraphic(32, 48, FlxColor.RED);
@@ -40,11 +41,11 @@ class PlayerTank extends FlxSprite
 		else 
 		{
 			//Sets keys for player2
-			_forwardKey = "UP";
-			_backwardKey = "DOWN";
-			_rLeftKey = "LEFT";
-			_rRightKey = "RIGHT";
-			_shootKey = "CONTROL";
+			_forwardKey = ["UP"];
+			_backwardKey = ["DOWN"];
+			_rLeftKey = ["LEFT"];
+			_rRightKey = ["RIGHT"];
+			_shootKey = ["CONTROL"];
 			
 			//makes graphics for player2
 			makeGraphic(32, 48, FlxColor.BLUE);
