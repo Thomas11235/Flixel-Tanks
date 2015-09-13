@@ -27,9 +27,7 @@ class PlayerTank extends FlxSprite
 	private var _forwardKey:Array<String>;
 	private var _backwardKey:Array<String>;
 	private var _rLeftKey:Array<String>;
-	private var _rRightKey:Array<String>;
-	private var _shootKey:Array<String>;
-	
+	private var _rRightKey:Array<String>;	
 	
 	public function new(X:Float=0, Y:Float=0, IsPlayer1:Bool=true) 
 	{
@@ -46,7 +44,6 @@ class PlayerTank extends FlxSprite
 			_backwardKey = ["S"];
 			_rLeftKey = ["A"];
 			_rRightKey = ["D"];
-			_shootKey = ["SPACE"];
 			
 			//makes graphics for player1
 			makeGraphic( _width, _height, FlxColor.RED);
@@ -58,7 +55,6 @@ class PlayerTank extends FlxSprite
 			_backwardKey = ["DOWN"];
 			_rLeftKey = ["LEFT"];
 			_rRightKey = ["RIGHT"];
-			_shootKey = ["CONTROL"];
 			
 			//makes graphics for player2
 			makeGraphic(_width, _height, FlxColor.BLUE);
