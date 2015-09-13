@@ -29,6 +29,12 @@ class PlayState extends FlxState
 		add(player2);
 	}
 	
+	private function shootBullets():Void
+	{
+	}
+	
+	
+	
 	/**
 	 * Function that is called when this state is destroyed - you might want to 
 	 * consider setting all objects this state uses to null to help garbage collection.
@@ -44,5 +50,6 @@ class PlayState extends FlxState
 	override public function update():Void
 	{
 		super.update();
+		shootBullets();
 	}	
 }
