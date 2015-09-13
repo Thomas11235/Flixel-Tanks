@@ -12,12 +12,21 @@ import flixel.util.FlxMath;
  */
 class PlayState extends FlxState
 {
+	private var player1:PlayerTank;
+	private var player2:PlayerTank;
+	
 	/**
 	 * Function that is called up when to state is created to set it up. 
 	 */
 	override public function create():Void
 	{
 		super.create();
+		
+		player1 = new PlayerTank(30, 30, true);
+		add(player1);
+		
+		player2 = new PlayerTank(70, 70, false);
+		add(player2);
 	}
 	
 	/**
