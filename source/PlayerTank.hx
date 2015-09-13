@@ -19,8 +19,8 @@ class PlayerTank extends FlxSprite
 	var _height:Int = 16;
 	
 	//Variables for movement
-	private var speed:Float = 200;
-	private var rSpeed:Float = 10;
+	private var speed:Float = 125;
+	private var rSpeed:Float = 3;
 	private var _drag:Int = 2000;
 	
 	//Variables for keys
