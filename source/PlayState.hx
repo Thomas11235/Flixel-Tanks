@@ -41,10 +41,10 @@ class PlayState extends FlxState
 		_bullets = new FlxTypedGroup<Bullet>();
 		add(_bullets);
 		
-		player1 = new PlayerTank(30, 30, true);
+		player1 = new PlayerTank(true, 30, 30);
 		add(player1);
 		
-		player2 = new PlayerTank(70, 70, false);
+		player2 = new PlayerTank(false, 70, 70);
 		add(player2);
 		
 		
