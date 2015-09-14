@@ -101,5 +101,7 @@ class PlayState extends FlxState
 	{
 		super.update();
 		shootBullets();
+		FlxG.collide(player1, _walls);
+		FlxG.collide(player2, _walls);
 	}	
 }
