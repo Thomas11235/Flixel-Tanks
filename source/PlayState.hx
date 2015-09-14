@@ -83,7 +83,10 @@ class PlayState extends FlxState
 		}
 	}
 	
-	
+	private function bulletCollideWithWall(bullet:FlxObject, wall:FlxObject):Void
+	{
+		bullet.kill();
+	}
 	
 	/**
 	 * Function that is called when this state is destroyed - you might want to 
@@ -103,5 +106,6 @@ class PlayState extends FlxState
 		shootBullets();
 		FlxG.collide(player1, _walls);
 		FlxG.collide(player2, _walls);
+		FlxG.collide(_bullets, _walls, bulletCollideWithWall);
 	}	
 }
