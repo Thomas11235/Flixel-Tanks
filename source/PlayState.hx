@@ -1,12 +1,15 @@
 package;
 
+import flixel.addons.editors.ogmo.FlxOgmoLoader;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.group.FlxTypedGroup;
 import flixel.text.FlxText;
+import flixel.tile.FlxTilemap;
 import flixel.ui.FlxButton;
 import flixel.util.FlxMath;
+import flixel.FlxObject;
 
 /**
  * A FlxState which can be used for the actual gameplay.
@@ -18,6 +21,10 @@ class PlayState extends FlxState
 	
 	private var _bullets:FlxTypedGroup<Bullet>;
 	
+	//Variables for the map
+	private var _map:FlxOgmoLoader;
+	private var _walls:FlxTilemap;
+	
 	/**
 	 * Function that is called up when to state is created to set it up. 
 	 */
@@ -25,17 +32,43 @@ class PlayState extends FlxState
 	{
 		super.create();
 		
+		_map = new FlxOgmoLoader("assets/arenas/arena001.oel");
+		_walls = _map.loadTilemap("assets/images/tiles.png", 16, 15, "walls");
+		_walls.setTileProperties(1, FlxObject.NONE);
+		_walls.setTileProperties(2, FlxObject.ANY);
+		add(_walls);
+		
 		_bullets = new FlxTypedGroup<Bullet>();
 		add(_bullets);
-				
-		player1 = new PlayerTank(30, 30, true);
+		
+		player1 = new PlayerTank(true);	
 		add(player1);
 		
-		player2 = new PlayerTank(70, 70, false);
+		player2 = new PlayerTank(false);
 		add(player2);
+		
+		_map.loadEntities(placeEntities, "entities");
 		
 		
 	}
+	
+	private function placeEntities(entityName:String, entityData:Xml):Void
+	{
+		var x:Int = Std.parseInt(entityData.get("x"));
+		var y:Int = Std.parseInt(entityData.get("y"));
+		
+		if (entityName == "player1")
+		{
+			player1.x = x;
+			player1.y = y;
+		}
+		else if (entityName == "player2")
+		{
+			player2.x = x;
+			player2.y = y;
+		}
+	}
+	
 	
 	private function shootBullets():Void
 	{
@@ -50,7 +83,10 @@ class PlayState extends FlxState
 		}
 	}
 	
-	
+	private function bulletCollideWithWall(bullet:FlxObject, wall:FlxObject):Void
+	{
+		bullet.kill();
+	}
 	
 	/**
 	 * Function that is called when this state is destroyed - you might want to 
@@ -68,5 +104,8 @@ class PlayState extends FlxState
 	{
 		super.update();
 		shootBullets();
+		FlxG.collide(player1, _walls);
+		FlxG.collide(player2, _walls);
+		FlxG.collide(_bullets, _walls, bulletCollideWithWall);
 	}	
 }

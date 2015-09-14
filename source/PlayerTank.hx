@@ -29,7 +29,7 @@ class PlayerTank extends FlxSprite
 	private var _rLeftKey:Array<String>;
 	private var _rRightKey:Array<String>;	
 	
-	public function new(X:Float=0, Y:Float=0, IsPlayer1:Bool=true) 
+	public function new(IsPlayer1:Bool=true, X:Float=0, Y:Float=0) 
 	{
 		super(X, Y);
 		
