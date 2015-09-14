@@ -41,14 +41,34 @@ class PlayState extends FlxState
 		_bullets = new FlxTypedGroup<Bullet>();
 		add(_bullets);
 		
-		player1 = new PlayerTank(true, 30, 30);
+		player1 = new PlayerTank(true);	
 		add(player1);
 		
-		player2 = new PlayerTank(false, 70, 70);
+		player2 = new PlayerTank(false);
 		add(player2);
+		
+		_map.loadEntities(placeEntities, "entities");
 		
 		
 	}
+	
+	private function placeEntities(entityName:String, entityData:Xml):Void
+	{
+		var x:Int = Std.parseInt(entityData.get("x"));
+		var y:Int = Std.parseInt(entityData.get("y"));
+		
+		if (entityName == "player1")
+		{
+			player1.x = x;
+			player1.y = y;
+		}
+		else if (entityName == "player2")
+		{
+			player2.x = x;
+			player2.y = y;
+		}
+	}
+	
 	
 	private function shootBullets():Void
 	{
