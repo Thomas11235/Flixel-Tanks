@@ -4,7 +4,10 @@ export/
 # Other files and folders
 .settings/
 
-#FlashDevelop projects
+# .hxml file
+project.xml.hxml
+
+# FlashDevelop projects
 Flixel-Tanks.hxproj
 
 # Windows image file caches

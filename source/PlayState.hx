@@ -4,11 +4,11 @@ import flixel.addons.editors.ogmo.FlxOgmoLoader;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
-import flixel.group.FlxTypedGroup;
+import flixel.group.FlxGroup;
 import flixel.text.FlxText;
 import flixel.tile.FlxTilemap;
 import flixel.ui.FlxButton;
-import flixel.util.FlxMath;
+import flixel.math.FlxMath;
 import flixel.FlxObject;
 
 /**
@@ -48,9 +48,7 @@ class PlayState extends FlxState
 		add(player2);
 		
 		_map.loadEntities(placeEntities, "entities");
-		
-		
-	}
+    }
 	
 	private function placeEntities(entityName:String, entityData:Xml):Void
 	{
@@ -100,9 +98,9 @@ class PlayState extends FlxState
 	/**
 	 * Function that is called once every frame.
 	 */
-	override public function update():Void
+	override public function update(elapsed:Float):Void
 	{
-		super.update();
+		super.update(elapsed);
 		shootBullets();
 		FlxG.collide(player1, _walls);
 		FlxG.collide(player2, _walls);
