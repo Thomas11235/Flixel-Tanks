@@ -98,9 +98,9 @@ class PlayState extends FlxState
 	/**
 	 * Function that is called once every frame.
 	 */
-	override public function update():Void
+	override public function update(elapsed:Float):Void
 	{
-		super.update();
+		super.update(elapsed);
 		shootBullets();
 		FlxG.collide(player1, _walls);
 		FlxG.collide(player2, _walls);
