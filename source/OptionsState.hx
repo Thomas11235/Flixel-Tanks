@@ -58,15 +58,15 @@ class OptionsState extends FlxState
 		add(_btnVolumeUp);
 		
 		//Adds a volume bar
-		_barVolume = new FlxBar(_btnVolumeDown.x + _btnVolumeDown.width, _btnVolumeDown.y, FlxBar.FILL_LEFT_TO_RIGHT, Std.int(FlxG.width - (256 + (_btnVolumeDown.width + _btnVolumeUp.width))), Std.int(_btnVolumeDown.height));
-		_barVolume.createFilledBar(FlxColor.CHARCOAL, FlxColor.WHITE, true);
+		_barVolume = new FlxBar(_btnVolumeDown.x + _btnVolumeDown.width, _btnVolumeDown.y, LEFT_TO_RIGHT, Std.int(FlxG.width - (256 + (_btnVolumeDown.width + _btnVolumeUp.width))), Std.int(_btnVolumeDown.height));
+		_barVolume.createFilledBar(0xff464646, FlxColor.WHITE, true, FlxColor.WHITE);
 		add(_barVolume);
 		
 		//Adds a volume status text
 		_txtVolumeStat = new FlxText(0, 0, 200, Std.string(FlxG.sound.volume * 100) + "%", 8);
 		_txtVolumeStat.alignment = "center";
-		_txtVolumeStat.borderStyle = FlxText.BORDER_OUTLINE;
-		_txtVolumeStat.borderColor = FlxColor.CHARCOAL;
+		_txtVolumeStat.borderStyle = FlxTextBorderStyle.OUTLINE;
+		_txtVolumeStat.borderColor = 0xff464646;
 		_txtVolumeStat.y = _barVolume.y + (_barVolume.height / 2) - (_txtVolumeStat.height / 2);
 		_txtVolumeStat.screenCenter(FlxAxes.X);
 		add(_txtVolumeStat);
@@ -110,7 +110,7 @@ class OptionsState extends FlxState
 	private function updateVolume() {
 		//Gets the current volume and updates the volume bar and text
 		var vol:Int = Math.round(FlxG.sound.volume * 100);
-		_barVolume.currentValue = vol;
+		_barVolume.value = vol;
 		_txtVolumeStat.text = Std.string(vol + "%");
 	}
 	
