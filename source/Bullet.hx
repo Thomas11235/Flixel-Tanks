@@ -23,7 +23,7 @@ class Bullet extends FlxSprite
 	{
 		super(X, Y);
 		makeGraphic( _width, _height, FlxColor.BROWN);
-		FlxAngle.rotatePoint(speed, 0, 0, 0, tankAngle, velocity);
+		//FlxAngle.rotatePoint(speed, 0, 0, 0, tankAngle, velocity);
 	}
 	
 }
