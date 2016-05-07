@@ -3,7 +3,9 @@ package;
 import flixel.FlxSprite;
 import flixel.util.FlxColor;
 import flixel.FlxG;
-import flixel.util.FlxAngle;
+import flixel.math.FlxAngle;
+import flixel.math.FlxPoint;
+import flixel.input.keyboard.FlxKey;
 
 /**
  * ...
@@ -24,10 +26,10 @@ class PlayerTank extends FlxSprite
 	private var _drag:Int = 2000;
 	
 	//Variables for keys
-	private var _forwardKey:Array<String>;
-	private var _backwardKey:Array<String>;
-	private var _rLeftKey:Array<String>;
-	private var _rRightKey:Array<String>;	
+	private var _forwardKey:Array<FlxKey>;
+	private var _backwardKey:Array<FlxKey>;
+	private var _rLeftKey:Array<FlxKey>;
+	private var _rRightKey:Array<FlxKey>;	
 	
 	public function new(IsPlayer1:Bool=true, X:Float=0, Y:Float=0) 
 	{
@@ -40,10 +42,10 @@ class PlayerTank extends FlxSprite
 		if (isPlayer1)
 		{
 			//Sets keys for player1
-			_forwardKey = ["W"];
-			_backwardKey = ["S"];
-			_rLeftKey = ["A"];
-			_rRightKey = ["D"];
+			_forwardKey = [W];
+			_backwardKey = [S];
+			_rLeftKey = [A];
+			_rRightKey = [D];
 			
 			//makes graphics for player1
 			makeGraphic( _width, _height, FlxColor.RED);
@@ -51,10 +53,10 @@ class PlayerTank extends FlxSprite
 		else 
 		{
 			//Sets keys for player2
-			_forwardKey = ["UP"];
-			_backwardKey = ["DOWN"];
-			_rLeftKey = ["LEFT"];
-			_rRightKey = ["RIGHT"];
+			_forwardKey = [UP];
+			_backwardKey = [DOWN];
+			_rLeftKey = [LEFT];
+			_rRightKey = [RIGHT];
 			
 			//makes graphics for player2
 			makeGraphic(_width, _height, FlxColor.BLUE);
@@ -62,9 +64,9 @@ class PlayerTank extends FlxSprite
 		
 	}
 	
-	override public function update()
+	override public function update(elapsed:Float)
 	{
-		super.update();
+		super.update(elapsed);
 		movement();
 	}
 	
@@ -107,16 +109,15 @@ class PlayerTank extends FlxSprite
 		//moves the tank towards forward
 		if (_forward)
 		{
-			FlxAngle.rotatePoint(speed, 0, 0, 0, angle, velocity);
-		}
-		
+			velocity.set(speed, 0);
+		    velocity.rotate(FlxPoint.weak(0, 0), angle);
+        }
+
 		//moves the tank towards backward
 		if (_backward)
 		{
-			FlxAngle.rotatePoint(speed, 0, 0, 0, angle + 180, velocity);
-		}
-		
-		
+		    velocity.set(speed, 0);
+            velocity.rotate(FlxPoint.weak(0, 0), angle-180);
+        }
 	}
-	
 }

@@ -5,10 +5,11 @@ import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
-import flixel.util.FlxMath;
+import flixel.math.FlxMath;
 import flixel.util.FlxDestroyUtil;
 import flixel.util.FlxColor;
 import flixel.util.FlxSave;
+import flixel.util.FlxAxes;
 import flash.system.System;
 import haxe.ds.Option;
 using flixel.util.FlxSpriteUtil;
@@ -41,22 +42,22 @@ class MenuState extends FlxState
 		//Displays title
 		_title = new FlxText(0, 100, 0, "Tanks", 32);
 		_title.alignment = "center";
-		_title.screenCenter(true, false);
+		_title.screenCenter(FlxAxes.X);
 		add(_title);
 		
 		//Button for options menu
 		_btnOptions = new FlxButton(0, 0, "Options", toOptions);
-		_btnOptions.screenCenter();
+		_btnOptions.screenCenter(FlxAxes.XY);
 		add(_btnOptions);
 		
 		//Button to start the game
 		_btnPlay = new FlxButton(0, _btnOptions.y - _btnOptions.height / 2 - 10, "Play", playGame);
-		_btnPlay.screenCenter(true, false);
+		_btnPlay.screenCenter(FlxAxes.X);
 		add(_btnPlay);
 		
 		//Button to close the game
 		_btnExit = new FlxButton(0, _btnOptions.y + _btnOptions.height / 2 + 10, "Exit", quitGame);
-		_btnExit.screenCenter(true, false);
+		_btnExit.screenCenter(FlxAxes.X);
 		add(_btnExit);
 		
 		super.create();
@@ -83,9 +84,9 @@ class MenuState extends FlxState
 	/**
 	 * Function that is called once every frame.
 	 */
-	override public function update():Void
+	override public function update(elapsed:Float):Void
 	{
-		super.update();
+		super.update(elapsed);
 	}	
 	
 	private function playGame() {
