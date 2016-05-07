@@ -19,7 +19,7 @@ class PlayState extends FlxState
 	private var player1:PlayerTank;
 	private var player2:PlayerTank;
 	
-	private var _bullets:FlxGroup<Bullet>;
+	private var _bullets:FlxTypedGroup<Bullet>;
 	
 	//Variables for the map
 	private var _map:FlxOgmoLoader;
@@ -38,7 +38,7 @@ class PlayState extends FlxState
 		_walls.setTileProperties(2, FlxObject.ANY);
 		add(_walls);
 		
-		_bullets = new FlxGroup<Bullet>();
+		_bullets = new FlxTypedGroup<Bullet>();
 		add(_bullets);
 		
 		player1 = new PlayerTank(true);	
