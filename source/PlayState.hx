@@ -8,7 +8,7 @@ import flixel.group.FlxTypedGroup;
 import flixel.text.FlxText;
 import flixel.tile.FlxTilemap;
 import flixel.ui.FlxButton;
-import flixel.util.FlxMath;
+import flixel.math.FlxMath;
 import flixel.FlxObject;
 
 /**
@@ -48,9 +48,7 @@ class PlayState extends FlxState
 		add(player2);
 		
 		_map.loadEntities(placeEntities, "entities");
-		
-		
-	}
+    }
 	
 	private function placeEntities(entityName:String, entityData:Xml):Void
 	{
