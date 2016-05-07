@@ -4,6 +4,7 @@ import flixel.FlxSprite;
 import flixel.util.FlxColor;
 import flixel.FlxG;
 import flixel.math.FlxAngle;
+import flixel.math.FlxPoint;
 
 /**
  * ...
@@ -23,7 +24,8 @@ class Bullet extends FlxSprite
 	{
 		super(X, Y);
 		makeGraphic( _width, _height, FlxColor.BROWN);
-		//FlxAngle.rotatePoint(speed, 0, 0, 0, tankAngle, velocity);
+	    velocity.set(speed, 0);
+        velocity.rotate(FlxPoint.weak(0, 0), tankAngle);
 	}
 	
 }

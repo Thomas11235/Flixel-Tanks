@@ -4,6 +4,7 @@ import flixel.FlxSprite;
 import flixel.util.FlxColor;
 import flixel.FlxG;
 import flixel.math.FlxAngle;
+import flixel.math.FlxPoint;
 import flixel.input.keyboard.FlxKey;
 
 /**
@@ -66,10 +67,10 @@ class PlayerTank extends FlxSprite
 	override public function update(elapsed:Float)
 	{
 		super.update(elapsed);
-		//movement();
+		movement();
 	}
 	
-	/*private function movement():Void
+	private function movement():Void
 	{
 		//Declare variables
 		var _forward:Bool = false;
@@ -108,16 +109,15 @@ class PlayerTank extends FlxSprite
 		//moves the tank towards forward
 		if (_forward)
 		{
-			FlxAngle.rotatePoint(speed, 0, 0, 0, angle, velocity);
-		}
+			velocity.set(speed, 0);
+		    velocity.rotate(FlxPoint.weak(0, 0), angle);
+        }
 
 		//moves the tank towards backward
 		if (_backward)
 		{
-			FlxAngle.rotatePoint(speed, 0, 0, 0, angle + 180, velocity);
-		}
-		
-		
-	}*/
-	
+		    velocity.set(speed, 0);
+            velocity.rotate(FlxPoint.weak(0, 0), angle-180);
+        }
+	}
 }
