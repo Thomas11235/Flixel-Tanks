@@ -66,10 +66,10 @@ class PlayerTank extends FlxSprite
 	override public function update(elapsed:Float)
 	{
 		super.update(elapsed);
-		movement();
+		//movement();
 	}
 	
-	private function movement():Void
+	/*private function movement():Void
 	{
 		//Declare variables
 		var _forward:Bool = false;
@@ -110,7 +110,7 @@ class PlayerTank extends FlxSprite
 		{
 			FlxAngle.rotatePoint(speed, 0, 0, 0, angle, velocity);
 		}
-		
+
 		//moves the tank towards backward
 		if (_backward)
 		{
@@ -118,6 +118,6 @@ class PlayerTank extends FlxSprite
 		}
 		
 		
-	}
+	}*/
 	
 }
