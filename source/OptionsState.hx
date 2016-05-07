@@ -8,6 +8,7 @@ import flixel.ui.FlxBar;
 import flixel.util.FlxColor;
 import flixel.util.FlxSave;
 import flixel.util.FlxDestroyUtil;
+import flixel.util.FlxAxes;
 using flixel.util.FlxSpriteUtil;
 
 class OptionsState extends FlxState
@@ -37,13 +38,13 @@ class OptionsState extends FlxState
 		//Displays the title
 		_txtTitle = new FlxText(0, 20, 0, "Options", 22);
 		_txtTitle.alignment = "center";
-		_txtTitle.screenCenter(true, false);
+		_txtTitle.screenCenter(FlxAxes.X);
 		add(_txtTitle);
 		
 		//Shows the text "Volume"
 		_txtVolume = new FlxText(0, _txtTitle.y + _txtTitle.height + 50, 0, "Volume", 8);
 		_txtVolume.alignment = "center";
-		_txtVolume.screenCenter(true, false);
+		_txtVolume.screenCenter(FlxAxes.X);
 		add(_txtVolume);
 		
 		//Adds a button to decrease the volume
@@ -67,22 +68,22 @@ class OptionsState extends FlxState
 		_txtVolumeStat.borderStyle = FlxText.BORDER_OUTLINE;
 		_txtVolumeStat.borderColor = FlxColor.CHARCOAL;
 		_txtVolumeStat.y = _barVolume.y + (_barVolume.height / 2) - (_txtVolumeStat.height / 2);
-		_txtVolumeStat.screenCenter(true, false);
+		_txtVolumeStat.screenCenter(FlxAxes.X);
 		add(_txtVolumeStat);
 		
 		//Adds a button to toggle between fullscreen and windowed
 		_btnFullscreen = new FlxButton(0, _barVolume.y + _barVolume.height + 20, FlxG.fullscreen ? "Windowed" : "Fullscreen", toggleFullscreen);
-		_btnFullscreen.screenCenter(true, false);
+		_btnFullscreen.screenCenter(FlxAxes.X);
 		add(_btnFullscreen);
 		
 		//Adds a button to reset everything to default
 		_btnReset = new FlxButton(0, _btnFullscreen.y + _btnFullscreen.height + 20, "Reset", resetDefault);
-		_btnReset.screenCenter(true, false);
+		_btnReset.screenCenter(FlxAxes.X);
 		add(_btnReset);
 		
 		//Adds a button to go back to the main menu
 		_btnBack = new FlxButton(0, _btnReset.y + _btnReset.height + 20, "Back", goBack);
-		_btnBack.screenCenter(true, false);
+		_btnBack.screenCenter(FlxAxes.X);
 		add(_btnBack);
 		
 		//Loads the saved volume and displays it
