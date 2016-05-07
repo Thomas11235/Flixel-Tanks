@@ -4,7 +4,7 @@ import flixel.addons.editors.ogmo.FlxOgmoLoader;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
-import flixel.group.FlxTypedGroup;
+import flixel.group.FlxGroup;
 import flixel.text.FlxText;
 import flixel.tile.FlxTilemap;
 import flixel.ui.FlxButton;
@@ -19,7 +19,7 @@ class PlayState extends FlxState
 	private var player1:PlayerTank;
 	private var player2:PlayerTank;
 	
-	private var _bullets:FlxTypedGroup<Bullet>;
+	private var _bullets:FlxGroup<Bullet>;
 	
 	//Variables for the map
 	private var _map:FlxOgmoLoader;
@@ -38,7 +38,7 @@ class PlayState extends FlxState
 		_walls.setTileProperties(2, FlxObject.ANY);
 		add(_walls);
 		
-		_bullets = new FlxTypedGroup<Bullet>();
+		_bullets = new FlxGroup<Bullet>();
 		add(_bullets);
 		
 		player1 = new PlayerTank(true);	
