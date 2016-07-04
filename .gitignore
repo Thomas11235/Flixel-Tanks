@@ -7,6 +7,9 @@ export/
 # FlashDevelop projects
 Flixel-Tanks.hxproj
 
+# hxml files
+*.hxml
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
