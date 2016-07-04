@@ -4,9 +4,6 @@ export/
 # Other files and folders
 .settings/
 
-# .hxml file
-project.xml.hxml
-
 # FlashDevelop projects
 Flixel-Tanks.hxproj
 
